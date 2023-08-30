@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product Name</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Add Product Name</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <section id="form" class="bg-light py-5">
+            <div class="container">
+                <p>Enter product details</p>
+                <form action="/add-product-name" method="post">
+                    <div class="form-group">
+                        <label for="customer">Customer</label>
+                        {% if customers and customers.length > 0 %}
+                        <select name="customerID" id="customer">
+                            {% for customer in customers %}
+                            <option value="{{customer.customerID}}">{{customer.name}}</option>
+                            {% endfor %}
+                        </select>
+                        {% endif %}  
+                    </div>
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>
